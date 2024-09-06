@@ -81,7 +81,7 @@ class _TodoListPageState extends State<TodoListPage> {
 
     if(isSuccess){
       final filtered = items.where((element) => element['_id'] != id).toList();
-      showSuccessMessage('Delete Successful');
+      showSuccessMessage(context, message: 'Delete Successful');
       setState(() {
         items = filtered;
       });
@@ -105,13 +105,6 @@ class _TodoListPageState extends State<TodoListPage> {
       isLoading = false;
     });
   }
-    void showSuccessMessage(String message){
-      final snackBar = SnackBar(
-        content: Text(message, style: TextStyle(color: Colors.white),),
-        backgroundColor: Colors.green,
-      );
-      ScaffoldMessenger.of(context).showSnackBar(snackBar);
-    }
 
     
 }
